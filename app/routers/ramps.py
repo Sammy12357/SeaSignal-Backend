@@ -8,11 +8,12 @@ from scripts.explore_api import haver_sine
 
 router = APIRouter()
 
+#catalog file path
 CATALOG = Path(__file__).resolve().parent.parent.parent / "catalog_pipeline" / "catalog.json"
 _raw = json.loads(CATALOG.read_text(encoding="utf-8"))
 RAMPS = [models.Ramp(**item) for item in _raw]
 
-
+# Find the nearest ramps to a given latitude and longitude
 def nearest_ramps(lat, lon, limit):
     results = []
     for ramp in RAMPS:
@@ -21,12 +22,12 @@ def nearest_ramps(lat, lon, limit):
     results.sort(key=lambda r: r.distance_km)
     return results[:limit]
 
-
+# Get the nearest ramps to a given location
 @router.get("/ramps", response_model=list[models.Ramp])
 def get_ramps(lat: float, lon: float, limit: int = 5):
     return nearest_ramps(lat, lon, limit)
 
-
+# Get a boating plan for a given location, including the nearest ramps, best forecast window, and alerts
 @router.get("/plan", response_model=list[models.RampPlan])
 def get_plan(lat: float, lon: float, limit: int = 3):
     ramps = nearest_ramps(lat, lon, limit)

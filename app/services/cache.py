@@ -1,7 +1,7 @@
 import time
 import functools
 
-
+#caching decorator with time-to-live (TTL) for function results
 def ttl_cache(ttl_seconds):
     def decorator(func):
         store = {}

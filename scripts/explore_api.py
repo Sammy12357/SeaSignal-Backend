@@ -12,12 +12,14 @@ print(f"Fixtures directory: {FIXTURES_DIR}")
 
 BALLAST_POINT = (27.89, -82.49)
 
+#savce the given data as a JSON fixture file in the fixtures directory
 def save_fixture(filename, data):
     file_path = FIXTURES_DIR / filename
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
         print(f"Saved fixture: {file_path}")
 
+#explore the forecast data for a given latitude and longitude, fetching hourly temperature, precipitation probability, cloud cover, and wind speed for the next 7 days
 def explore_forecast(lat,lon):
     url = "https://api.open-meteo.com/v1/forecast"
 
@@ -45,6 +47,8 @@ def explore_forecast(lat,lon):
 
     save_fixture("meteo_forecast.json", data)
 
+
+#explore the marine data for a given latitude and longitude, fetching hourly wave height, wave period, and wave direction for the next 7 days
 def explore_marine(lat, lon):
     url = "https://marine-api.open-meteo.com/v1/marine"
 
@@ -79,6 +83,8 @@ def explore_marine(lat, lon):
 
     save_fixture("meteo_marine.json", data)
 
+
+# Fetch tide stations from the NOAA API
 def fetch_stations():
     url = "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json"
 
@@ -95,7 +101,7 @@ def fetch_stations():
 
     save_fixture("noaa_stations.json", data)
 
-
+#haversine formula to calculate the great-circle distance between two points on the Earth given their latitude and longitude
 def haver_sine(lat1, lon1, lat2, lon2):
     from math import radians, sin, cos, sqrt, atan2
 
@@ -115,7 +121,7 @@ def haver_sine(lat1, lon1, lat2, lon2):
     distance = R * c
     return distance
 
-
+# Find the nearest station to a given latitude and longitude
 def find_nearest_station(lat, lon, stations):
     nearest_station = None
     min_distance = float('inf')
@@ -133,6 +139,7 @@ def find_nearest_station(lat, lon, stations):
     save_fixture("nearest_station.json", nearest_station)
     return nearest_station
 
+# Fetch tide predictions for a given station and date range
 def fetch_tide_predictions(station_id, begin_date, end_date):
     url = f"https://api.tidesandcurrents.noaa.gov/api/prod/datagetter"
 

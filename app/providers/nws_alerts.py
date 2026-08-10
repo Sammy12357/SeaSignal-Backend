@@ -3,6 +3,7 @@ from app import config, models
 
 HEADERS = config.HEADERS
 
+# Fetch alerts from NWS API
 def fetch_alerts(lat, lon):
     url = config.urls["nws_alerts"]
     params = {"point": f"{lat},{lon}"}
@@ -11,6 +12,7 @@ def fetch_alerts(lat, lon):
     data = response.json()
     return parse_alerts(data)
 
+# Parse the alerts data into a list of Alert models
 def parse_alerts(data):
     features = data.get("features", [])
     alerts = []

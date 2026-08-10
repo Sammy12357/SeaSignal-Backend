@@ -4,6 +4,7 @@ from scripts.explore_api import haver_sine
 
 HEADERS = config.HEADERS
 
+# Fetch stations from NOAA API
 def fetch_stations():
     url = config.urls["stations"]
 
@@ -16,7 +17,7 @@ def fetch_stations():
     data = response.json()
     return data
 
-
+# Find the nearest station to a given latitude and longitude
 def find_nearest_station(lat, lon, stations):
     nearest_station = None
     min_distance = float('inf')
@@ -32,7 +33,7 @@ def find_nearest_station(lat, lon, stations):
                 nearest_station = station
     return models.Station(name=nearest_station["name"], latitude=nearest_station["lat"], longitude=nearest_station["lng"], distance_km=min_distance, id=nearest_station["id"])
 
-
+# Fetch tide predictions for a given station and date range
 def fetch_tide_predictions(station_id, begin_date, end_date):
     url = config.urls["tide_predictions"]
 
@@ -47,7 +48,7 @@ def fetch_tide_predictions(station_id, begin_date, end_date):
         "format": "json",
         "interval": "h"  
     }
-
+    #fetch the tide predictions from NOAA API
     response = httpx.get(url, params=params, headers=HEADERS)
     response.raise_for_status()
     data = response.json()

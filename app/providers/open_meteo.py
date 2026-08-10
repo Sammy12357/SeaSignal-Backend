@@ -4,6 +4,7 @@ from app import models
 
 HEADERS = config.HEADERS
 
+# Fetch forecast data from Open-Meteo API
 def fetch_forecast(lat,lon):
 
     url = config.urls["forecast"]
@@ -22,6 +23,7 @@ def fetch_forecast(lat,lon):
 
     return parse_forecast(data)
 
+# Parse the forecast data into a list of ForecastHourly models
 def parse_forecast(data):
     hourly_data = data.get("hourly", {})
     time_list = hourly_data.get("time", [])
@@ -43,6 +45,7 @@ def parse_forecast(data):
 
     return forecast_hourly_list
 
+# Fetch marine data from Open-Meteo API
 def fetch_marine(lat, lon):
     url = config.urls["marine"]
     params = {
@@ -59,6 +62,7 @@ def fetch_marine(lat, lon):
 
     return parse_marine(data)
 
+# Parse the marine data into a list of MarineHour models
 def parse_marine(data):
     hourly_data = data.get("hourly", {})
     time_list = hourly_data.get("time", [])

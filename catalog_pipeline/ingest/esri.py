@@ -1,7 +1,7 @@
 import httpx
 from app import config, models
 
-
+# Fetch boat ramps from the FWC Esri API, handling pagination and parsing the response into Ramp models
 def fetch_ramps(url, page_size=1000):
     ramps = []
     offset = 0
@@ -30,7 +30,7 @@ def fetch_ramps(url, page_size=1000):
 
     return ramps
 
-
+# Parse the features from the Esri API response into a list of Ramp models
 def parse_features(features):
     ramps = []
     for feature in features:

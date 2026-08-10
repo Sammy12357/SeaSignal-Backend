@@ -2,11 +2,11 @@
 #Wave Height: under a foot
 #Precipitation: under 20%
 from unittest import case
-
+from app.services.cache import ttl_cache
 from app import config, models
 from app.services import timeline
 
-
+#score a timeline of merged data records, returning a list of ConditionScore objects
 def score_timeline(merged_list):
     scores = []
 
@@ -43,9 +43,9 @@ def score_timeline(merged_list):
 
     return scores
 
-from app.services.cache import ttl_cache
 
-@ttl_cache(1800)                          # 30 minutes
+#caching the score_location function for 30 minutes to avoid repeated calculations for the same location
+@ttl_cache(1800)           
 def score_location(lat, lon):
     return score_timeline(timeline.build_timeline(lat, lon))
 

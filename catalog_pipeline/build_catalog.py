@@ -7,7 +7,7 @@ BASE = Path(__file__).resolve().parent
 SOURCES = BASE / "sources.yaml"
 CATALOG = BASE / "catalog.json"
 
-
+# Build a catalog of boat ramps by fetching data from configured sources and saving it to a JSON file
 def build_catalog():
     config = yaml.safe_load(SOURCES.read_text(encoding="utf-8"))
     ramps = []

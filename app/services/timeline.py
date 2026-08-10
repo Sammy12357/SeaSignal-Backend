@@ -42,6 +42,7 @@ def build_timeline(lat,lon):
 
     return merged_list
 
+# Print a timeline table of merged data records, showing time, temperature, wind speed, wave height, tide height, and precipitation probability
 def print_timeline_table(records, limit=24):
     header = f"{'Time':<12}{'Temp°C':>8}{'Wind kn':>9}{'Wave m':>8}{'Tide ft':>9}{'Precip%':>9}"
     print(header)
