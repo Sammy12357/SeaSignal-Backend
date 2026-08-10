@@ -1,0 +1,4 @@
+sources:
+  - name: FWC Florida Boat Ramp Inventory
+    type: esri
+    url: https://gis.myfwc.com/mapping/rest/services/Open_Data/FWC_Florida_Boat_Ramp_Inventory/MapServer/4/query

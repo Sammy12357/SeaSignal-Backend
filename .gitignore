@@ -1,0 +1,19 @@
+# Virtual environments (matches .venv, .venv-1, .venv-2, .vemv, etc.)
+.venv*/
+.vemv*/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Personal / non-code files
+*.tex
+*.pdf
+cover_letter_*
+
+# OS / editor
+.DS_Store
+.vscode/

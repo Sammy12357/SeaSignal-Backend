@@ -1,0 +1,22 @@
+{
+  "state": "FL",
+  "tidepredoffsets": {
+    "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/8726639/tidepredoffsets.json"
+  },
+  "type": "R",
+  "timemeridian": -75,
+  "reference_id": "",
+  "timezonecorr": -5,
+  "id": "8726639",
+  "name": "Ballast Point",
+  "lat": 27.89,
+  "lng": -82.48,
+  "affiliations": "",
+  "portscode": "",
+  "products": null,
+  "disclaimers": null,
+  "notices": null,
+  "self": null,
+  "expand": null,
+  "tideType": ""
+}

@@ -1,0 +1,10 @@
+[
+  { "name": "Ballast Point Park Boat Ramp", "latitude": 27.8897, "longitude": -82.4890, "county": "Hillsborough" },
+  { "name": "Davis Islands Boat Ramp", "latitude": 27.9180, "longitude": -82.4490, "county": "Hillsborough" },
+  { "name": "Gandy Boat Ramp", "latitude": 27.8780, "longitude": -82.5770, "county": "Hillsborough" },
+  { "name": "Picnic Island Park Boat Ramp", "latitude": 27.8550, "longitude": -82.5520, "county": "Hillsborough" },
+  { "name": "E.G. Simmons Park Boat Ramp", "latitude": 27.7170, "longitude": -82.4780, "county": "Hillsborough" },
+  { "name": "Williams Park Boat Ramp", "latitude": 27.8600, "longitude": -82.3500, "county": "Hillsborough" },
+  { "name": "Fort De Soto Park Boat Ramp", "latitude": 27.6300, "longitude": -82.7200, "county": "Pinellas" },
+  { "name": "Courtney Campbell Causeway Boat Ramp", "latitude": 27.9600, "longitude": -82.6000, "county": "Pinellas" }
+]
